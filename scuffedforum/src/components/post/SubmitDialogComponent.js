@@ -61,9 +61,9 @@ export default class SubmitDialogComponent extends React.Component {
     const { title, description, category } = this.state;
     this.getCategories();
     return (
-      <Modal show={this.props.show} onHide={this.handleCancel}>
-        <Modal.Header>
-          <Modal.Title>{this.toEdit ? "Edit post" : "Create post"}</Modal.Title>
+      <Modal show={this.props.show} onHide={this.handleCancel} >
+        <Modal.Header >
+          <Modal.Title >{this.toEdit ? "Edit post" : "Create post"}</Modal.Title>
         </Modal.Header>
         <Form onSubmit={(evt) => this.handleSubmit(evt)}>
           <Modal.Body>
@@ -75,30 +75,24 @@ export default class SubmitDialogComponent extends React.Component {
             <Form.Group>
               <Form.Label>Description</Form.Label>
               <Form.Control value={description} onChange={(evt) => this.setState({ description: evt.target.value })} />
+              <br/>
             </Form.Group>
 
-            <Form.Group>
-              <Form.Label>Category</Form.Label>
-              <select 
-              
-              onChange={(evt) => this.setState({ category: evt.target.value })}
-            
-              
-              >
+            <Form.Control as="select" custom
+              onChange={(evt) => this.setState({ category: evt.target.value })}>        
                 <option >Category</option>
                 {this.categorys.map((item, index) =>
                   <option  key={`item${index}`} value={item.nameCategory}>{item.nameCategory}</option>
                 )}
-              </select>
             
-            </Form.Group>
+            </Form.Control>
 
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={() => this.handleCancel()}>
               Cancel
             </Button>
-            <Button variant="primary" type="submit">
+            <Button variant="warning" type="submit">
               Save
             </Button>
           </Modal.Footer>

@@ -35,21 +35,21 @@ export default class BookDetailsPage extends React.Component {
     return (
       <div>
         <Container>
-          <Button variant="outline-primary" style={{ margin: "10px 0" }} onClick={() => this.props.history.goBack()}>
+          <Button variant="outline-warning" style={{ margin: "10px 0" }} onClick={() => this.props.history.goBack()}>
             <FontAwesomeIcon icon={faArrowLeft} />
           &nbsp;Back to list
         </Button>
           {error !== undefined && <Alert variant="danger">{error}</Alert>}
           {post !== undefined ? (
             <div>
-              <Jumbotron>
+              <Jumbotron bsPrefix="dark">
                 <Row>
                   <Col xs={6} md={8} lg={9}>
                     <h1>{post.title}</h1>
                     <h5>{post._id}</h5>
                     <Row>
                       <Col xs={4} md={3} lg={2}>
-                        <Badge variant="secondary">Description</Badge>
+                        <Badge variant="dark">Description</Badge>
                       </Col>
                       <Col xs={8} md={9} lg={10}>
                         {post.description}
@@ -57,16 +57,27 @@ export default class BookDetailsPage extends React.Component {
                     </Row>
                     <Row>
                       <Col xs={4} md={3} lg={2}>
-                        <Badge variant="secondary">Category</Badge>
+                        <Badge variant="dark">Category</Badge>
                       </Col>
                       <Col xs={8} md={9} lg={10}>
                         {post.category}
                       </Col>
                     </Row>
-
+                    <br />
+                    {userId === post.userId &&
+                        <div>
+                          <Button variant="warning" onClick={() => this.setState({ toUpdate: true })}>
+                            Update
+                    </Button>
+                    &nbsp;
+                    <Button variant="danger" onClick={() => this.setState({ toRemove: true })}>
+                            Remove
+                    </Button>
+                        </div>
+                      }
 
                     <Button
-                      variant="outline-primary"
+                      variant="outline-warning"
                       style={{ margin: "10px 0" }}
                       onClick={() => this.setState({ toCreate: true })} >
                       <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
@@ -116,22 +127,7 @@ export default class BookDetailsPage extends React.Component {
                 removed={() => this.setState({ toRemoveComment: false })}
               />
                     </Table>
-
-                    
-
                     <br />
-
-                      {userId === post.userId &&
-                        <div>
-                          <Button variant="dark" onClick={() => this.setState({ toUpdate: true })}>
-                            Update
-                    </Button>
-                    &nbsp;
-                    <Button variant="danger" onClick={() => this.setState({ toRemove: true })}>
-                            Remove
-                    </Button>
-                        </div>
-                      }
                   </Col>
                 </Row>
               </Jumbotron>

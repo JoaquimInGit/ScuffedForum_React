@@ -16,6 +16,8 @@ import RegisterPage from "../pages/auth/Register";
 import listCategory from "../pages/post/listCategoryPost.js";
 import myList from "../pages/post/myList.js";
 
+import About from "../pages/about/About.js";
+
 export default class RouterComponent extends Component {
     /*
     <PrivateRoute roles={[1, 2]} exact path="/book/list" component={BookListPage} />
@@ -27,6 +29,7 @@ export default class RouterComponent extends Component {
 
 
 <NavbarComponent />
+<div class="col">
 <Switch>
     <Route exact path="/register" component={RegisterPage} />
     <Route exact path="/login" component={LoginPage} />
@@ -35,8 +38,10 @@ export default class RouterComponent extends Component {
     <PrivateRoute roles={[1, 2]} exact path="/post/details/:id" component={postDetailsPage} />
     <PrivateRoute roles={[1, 2]} exact path="/post/category/:name" component={listCategory} />
     <PrivateRoute roles={[1, 2]} exact path="/post/myList/" component={myList} />
+    <Route  exact path="/about/" component={About} />
     <Route path="*" component={Home} />
 </Switch>
+</div>
             </Router>
         );
     }

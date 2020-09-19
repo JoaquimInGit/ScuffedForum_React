@@ -5,7 +5,6 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import servicesCat from "../../services/category";
 import SubmitDialogComponent from '../../components/category/SubmitDialog';
 
-
 export default class TvShowListPage extends React.Component {
 
     
@@ -44,14 +43,12 @@ export default class TvShowListPage extends React.Component {
         let currentUser = sessionStorage.getItem('user');
         let role = JSON.parse(currentUser).role;
         return (
-            <Container className="float-left container p-3 my-3 bg-dark text-white" style={{ width: "400px" }} variant="dark">
+            <Container className="container p-3 my-3 bg-dark text-white" variant="dark"  >
                 {error !== undefined && <Alert variant="danger"> {error} </Alert>}
-                <br></br>
-                <br></br>
                 {<div className="buttons-container">
                     {role === 1 &&
                         <Button
-                            variant="outline-primary"
+                            variant="outline-warning"
                             style={{ alignSelf: 'flex-start' }}
                             onClick={() => this.setState({ toCreate: true })}
                         >
@@ -68,10 +65,10 @@ export default class TvShowListPage extends React.Component {
                 />
 
                 <br />
-                <Table responsive style={{ width: "300px" }}>
+                <Table responsive className="table table-borderless">
                     <thead>
                         <tr>
-                            <th className="text-secondary" >Category</th>
+                            <th className="text-light" >Category</th>
                             <th />
                         </tr>
                     </thead>
@@ -82,14 +79,13 @@ export default class TvShowListPage extends React.Component {
                                     onClick={() => {
                                         console.log(this.props);
                                         this.props.props.history.push("/post/category/" + category.nameCategory)
-                                        //let path = "" + '/post/category/'+ {category.nameCategory}
-                                        //window.location.href =`/post/category/ + ${category.nameCategory}`
                                     }
                                 }
                                 >{category.nameCategory}</td>
                                 <td>
-                                    {<Button
-                                        variant="danger"
+                                    {role === 1 &&
+                                        <Button
+                                        variant="outline-danger"
                                         onClick={() => this.handleRemove(category._id)}
                                         className="float-right"
                                     >

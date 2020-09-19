@@ -1,23 +1,16 @@
 import React from 'react';
-import logo from '../../assets/logo.svg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faGlobe } from '@fortawesome/free-solid-svg-icons';
 import './Home.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <h4 className="text-warning"><FontAwesomeIcon icon={faGlobe} size="9x"/></h4>
+      <h1 className="text-warning"> Welcome to</h1>
+      <h1 className="text-warning"> Scuffed Forum</h1>
+      <h3 className="text-light" >Please Login / Register to access</h3>
       </header>
     </div>
   );

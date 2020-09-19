@@ -44,13 +44,12 @@ export default class SubmitDialogComponent extends React.Component {
     return (
       <Modal show={this.props.show} onHide={this.handleCancel}>
         <Modal.Header>
-          <Modal.Title>Create Commment</Modal.Title>
+          <Modal.Title>Create a Commment</Modal.Title>
         </Modal.Header>
         <Form onSubmit={(evt) => this.handleSubmit(evt)}>
           <Modal.Body>
 
             <Form.Group>
-              <Form.Label>Comment</Form.Label>
               <Form.Control value={comment} onChange={(evt) => this.setState({ comment: evt.target.value })} />
             </Form.Group>
 
@@ -59,7 +58,7 @@ export default class SubmitDialogComponent extends React.Component {
             <Button variant="secondary" onClick={() => this.handleCancel()}>
               Cancel
             </Button>
-            <Button variant="primary" type="submit">
+            <Button variant="warning" type="submit">
               Save
             </Button>
           </Modal.Footer>

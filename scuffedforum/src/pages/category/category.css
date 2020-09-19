@@ -10,3 +10,10 @@
   .corDetails{
      background-color:#90EE90;
   }
+
+  .borderless table {
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    border-bottom-style: none;
+}
