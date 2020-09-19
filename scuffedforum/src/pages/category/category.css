@@ -1,0 +1,12 @@
+.buttons-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin: 10px 0;
+  }
+  .cor{
+    background-color:#D6EAF8;
+  }
+  .corDetails{
+     background-color:#90EE90;
+  }
